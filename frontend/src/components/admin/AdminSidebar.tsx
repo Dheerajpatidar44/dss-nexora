@@ -187,11 +187,11 @@ export default function AdminSidebar() {
   const pathname = usePathname();
   const { isSidebarCollapsed, setSidebarCollapsed } = useUIStore();
   const { user, logout } = useAuthStore();
-  const [openGroups, setOpenGroups] = useState<string[]>(["Dashboard", "Products", "Settings"]);
+  const [openGroups, setOpenGroups] = useState<string[]>([]);
 
   const toggleGroup = (title: string) => {
     setOpenGroups((prev) =>
-      prev.includes(title) ? prev.filter((t) => t !== title) : [...prev, title]
+      prev.includes(title) ? [] : [title]
     );
   };
 
@@ -202,12 +202,12 @@ export default function AdminSidebar() {
   return (
     <aside
       className={cn(
-        "sidebar scrollbar-thin overflow-y-auto overflow-x-hidden transition-all duration-300 bg-white border-r border-gray-100 flex flex-col h-screen",
+        "sidebar scrollbar-thin overflow-y-auto overflow-x-hidden transition-all duration-300 bg-white border-r border-gray-100 flex flex-col h-screen text-[#2d3136]",
         isSidebarCollapsed ? "w-20" : "w-[280px]"
       )}
     >
       {/* Logo */}
-      <div className="flex items-center justify-between px-5 py-6 border-b border-gray-100 flex-shrink-0 sticky top-0 bg-white z-10">
+      <div className="flex items-center justify-between px-5 py-2 border-b border-gray-100 flex-shrink-0 sticky top-0 bg-white z-10">
         {!isSidebarCollapsed && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -217,7 +217,7 @@ export default function AdminSidebar() {
             <div className="flex items-center">
               <Image src="/logo.png" alt="DSS Nexus" width={120} height={36} className="w-auto h-20 object-contain" priority />
             </div>
-            <p className="text-[11px] font-bold text-gray-500 uppercase tracking-wider ml-1">Admin Panel</p>
+            <p className="text-[12px] font-bold text-gray-500 uppercase tracking-wider ml-1">Admin Panel</p>
           </motion.div>
         )}
         <button
@@ -237,7 +237,7 @@ export default function AdminSidebar() {
           <div key={groupIndex} className="mb-6">
             {/* Section Header */}
             {!isSidebarCollapsed && (
-              <h3 className="px-3 mb-2 text-[11px] font-bold text-gray-400 tracking-[0.1em]">
+              <h3 className="px-3 mb-2 text-[11px] font-bold text-gray-700 tracking-[0.1em] uppercase">
                 {group.label}
               </h3>
             )}
@@ -259,19 +259,16 @@ export default function AdminSidebar() {
                         onClick={() => !isSidebarCollapsed && toggleGroup(item.title)}
                         title={isSidebarCollapsed ? item.title : undefined}
                         className={cn(
-                          "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-[14.5px] font-medium transition-all group",
+                          "w-full flex items-center gap-3 px-3 py-3 rounded-xl text-[15px] font-medium transition-all group",
                           groupActive
-                            ? "text-primary bg-primary/5 shadow-sm"
-                            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50",
+                            ? "bg-[#F4F4F4] text-primary"
+                            : "hover:bg-[#F4F4F4] text-[#2d3136]",
                           isSidebarCollapsed && "justify-center"
                         )}
                       >
                         <item.icon 
                           size={18} 
-                          className={cn(
-                            "flex-shrink-0 transition-colors", 
-                            groupActive ? "text-primary" : "text-gray-400 group-hover:text-gray-600"
-                          )} 
+                          className="flex-shrink-0 transition-colors" 
                         />
                         {!isSidebarCollapsed && (
                           <>
@@ -280,7 +277,6 @@ export default function AdminSidebar() {
                               size={16}
                               className={cn(
                                 "transition-transform duration-200",
-                                groupActive ? "text-primary" : "text-gray-400",
                                 isOpen && "rotate-180"
                               )}
                             />
@@ -303,19 +299,17 @@ export default function AdminSidebar() {
                                   key={child.href}
                                   href={child.href}
                                   className={cn(
-                                    "flex items-center gap-3 px-3 py-2 rounded-lg text-[13.5px] transition-all group/child",
+                                    "flex items-center gap-3 px-3 py-2.5 rounded-lg text-[14px] font-medium transition-all group/child",
                                     isActive(child.href)
-                                      ? "text-primary font-semibold"
-                                      : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
+                                      ? "bg-[#F4F4F4] text-gray-900"
+                                      : "hover:bg-[#F4F4F4] text-[#5a5e63]"
                                   )}
                                 >
                                   <Circle 
                                     size={6} 
                                     className={cn(
                                       "flex-shrink-0",
-                                      isActive(child.href) 
-                                        ? "fill-primary text-primary" 
-                                        : "text-gray-300 group-hover/child:text-gray-400"
+                                      isActive(child.href) ? "fill-black" : ""
                                     )} 
                                   />
                                   {child.title}
@@ -337,7 +331,7 @@ export default function AdminSidebar() {
                        onClick={() => logout()}
                        title={isSidebarCollapsed ? item.title : undefined}
                        className={cn(
-                         "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-[14.5px] font-medium transition-all group text-red-500 hover:bg-red-50",
+                         "w-full flex items-center gap-3 px-3 py-3 rounded-xl text-[15px] font-medium transition-all group text-red-500 hover:bg-[#F4F4F4]",
                          isSidebarCollapsed && "justify-center"
                        )}
                      >
@@ -353,19 +347,16 @@ export default function AdminSidebar() {
                     href={item.href!}
                     title={isSidebarCollapsed ? item.title : undefined}
                     className={cn(
-                      "flex items-center gap-3 px-3 py-2.5 rounded-xl text-[14.5px] font-medium transition-all group",
+                      "flex items-center gap-3 px-3 py-3 rounded-xl text-[15px] font-medium transition-all group",
                       isActive(item.href!)
-                        ? "text-primary bg-primary/5 shadow-sm"
-                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-50",
+                        ? "bg-[#F4F4F4] text-primary"
+                        : "hover:bg-[#F4F4F4] text-[#2d3136]",
                       isSidebarCollapsed && "justify-center"
                     )}
                   >
                     <item.icon 
                       size={18} 
-                      className={cn(
-                        "flex-shrink-0 transition-colors",
-                        isActive(item.href!) ? "text-primary" : "text-gray-400 group-hover:text-gray-600"
-                      )} 
+                      className="flex-shrink-0 transition-colors" 
                     />
                     {!isSidebarCollapsed && <span>{item.title}</span>}
                   </Link>
