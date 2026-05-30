@@ -128,7 +128,7 @@ const productSchema = new Schema<IProduct>(
 );
 
 // ─── Indexes ──────────────────────────────────────────────────────────────────
-productSchema.index({ slug: 1 });
+// productSchema.index({ slug: 1 }); // Removed duplicate index
 productSchema.index({ vendorId: 1 });
 productSchema.index({ storeId: 1 });
 productSchema.index({ categoryId: 1 });

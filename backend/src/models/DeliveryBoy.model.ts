@@ -71,7 +71,7 @@ const deliveryBoySchema = new Schema<IDeliveryBoy>(
   { timestamps: true }
 );
 
-deliveryBoySchema.index({ userId: 1 });
+// deliveryBoySchema.index({ userId: 1 }); // Removed duplicate index
 deliveryBoySchema.index({ zone: 1, isAvailable: 1 });
 
 export const DeliveryBoy = mongoose.model<IDeliveryBoy>("DeliveryBoy", deliveryBoySchema);

@@ -9,6 +9,7 @@ import { Eye, EyeOff, Loader2, ArrowRight, ShoppingBag } from "lucide-react";
 import { useAuthStore } from "@/store/authStore";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { toast } from "sonner";
 
 const loginSchema = z.object({
@@ -65,12 +66,9 @@ export default function LoginPage() {
           transition={{ duration: 0.7 }}
           className="relative z-10 text-center px-12"
         >
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-8 border border-white/30">
-            <span className="text-white font-black text-4xl">D</span>
+          <div className="flex items-center justify-center mx-auto mb-6">
+            <Image src="/logo.png" alt="DSS Nexus Commerce" width={200} height={64} className="w-auto h-16 object-contain" priority />
           </div>
-          <h1 className="text-4xl font-black text-white mb-4 leading-tight">
-            DSS Nexus<br />Commerce
-          </h1>
           <p className="text-green-100 text-lg mb-12 leading-relaxed">
             Enterprise-grade multi-vendor marketplace for the modern world
           </p>
@@ -114,12 +112,8 @@ export default function LoginPage() {
           transition={{ duration: 0.5 }}
           className="w-full max-w-md"
         >
-          {/* Mobile Logo */}
-          <div className="flex items-center gap-3 mb-8 lg:hidden">
-            <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center">
-              <span className="text-white font-black">D</span>
-            </div>
-            <span className="font-black text-gray-900 text-xl">DSS Nexus Commerce</span>
+          <div className="flex items-center mb-6 lg:hidden">
+            <Image src="/logo.png" alt="DSS Nexus Commerce" width={160} height={48} className="w-auto h-12 object-contain" priority />
           </div>
 
           <div className="mb-8">

@@ -31,7 +31,7 @@ const categorySchema = new Schema<ICategory>(
   { timestamps: true }
 );
 
-categorySchema.index({ slug: 1 });
+// categorySchema.index({ slug: 1 }); // Removed duplicate index
 categorySchema.index({ parentId: 1 });
 categorySchema.index({ isActive: 1, sortOrder: 1 });
 
@@ -62,7 +62,7 @@ const brandSchema = new Schema<IBrand>(
   { timestamps: true }
 );
 
-brandSchema.index({ slug: 1 });
+// brandSchema.index({ slug: 1 }); // Removed duplicate index
 brandSchema.index({ isActive: 1 });
 
 export const Brand = mongoose.model<IBrand>("Brand", brandSchema);

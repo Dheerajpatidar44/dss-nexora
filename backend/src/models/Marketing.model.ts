@@ -302,7 +302,7 @@ const systemSettingSchema = new Schema<ISystemSetting>(
   { timestamps: true }
 );
 
-systemSettingSchema.index({ key: 1 });
+// systemSettingSchema.index({ key: 1 }); // Removed duplicate index
 systemSettingSchema.index({ group: 1 });
 
 export const SystemSetting = mongoose.model<ISystemSetting>(

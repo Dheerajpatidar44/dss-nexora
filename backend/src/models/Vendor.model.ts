@@ -63,7 +63,7 @@ const vendorSchema = new Schema<IVendor>(
   { timestamps: true }
 );
 
-vendorSchema.index({ userId: 1 });
+// vendorSchema.index({ userId: 1 }); // Removed duplicate index
 vendorSchema.index({ isApproved: 1 });
 
 export const Vendor = mongoose.model<IVendor>("Vendor", vendorSchema);

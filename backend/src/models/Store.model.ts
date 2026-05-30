@@ -85,7 +85,7 @@ const storeSchema = new Schema<IStore>(
 );
 
 storeSchema.index({ vendorId: 1 });
-storeSchema.index({ slug: 1 });
+// storeSchema.index({ slug: 1 }); // Removed duplicate index
 storeSchema.index({ isActive: 1 });
 
 export const Store = mongoose.model<IStore>("Store", storeSchema);

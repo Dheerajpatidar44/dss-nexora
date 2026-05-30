@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useAuthStore } from "@/store/authStore";
@@ -37,12 +38,11 @@ export default function DeliverySidebar() {
       <div className="flex items-center justify-between px-4 py-5 border-b border-teal-50">
         {!isSidebarCollapsed && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-teal-600 to-emerald-500 flex items-center justify-center">
-              <span className="text-white font-black text-sm">D</span>
+            <div className="flex items-center justify-center">
+              <Image src="/logo.png" alt="DSS Nexus" width={100} height={32} className="w-auto h-8 object-contain" priority />
             </div>
             <div>
-              <p className="font-bold text-gray-900 text-sm leading-none">DSS Nexus</p>
-              <p className="text-xs text-gray-400 mt-0.5">Delivery Fleet</p>
+              <p className="text-xs text-gray-500 font-medium">Delivery Fleet</p>
             </div>
           </motion.div>
         )}

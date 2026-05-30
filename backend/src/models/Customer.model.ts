@@ -39,7 +39,7 @@ const customerSchema = new Schema<ICustomer>(
   { timestamps: true }
 );
 
-customerSchema.index({ userId: 1 });
-customerSchema.index({ referralCode: 1 });
+// customerSchema.index({ userId: 1 }); // Removed duplicate index
+// customerSchema.index({ referralCode: 1 }); // Removed duplicate index
 
 export const Customer = mongoose.model<ICustomer>("Customer", customerSchema);

@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Loader2, ArrowRight, ShoppingBag, ShieldCheck } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { toast } from "sonner";
 import api from "@/lib/axios";
 
@@ -79,12 +80,9 @@ export default function RegisterPage() {
           transition={{ duration: 0.7 }}
           className="relative z-10 text-center px-12"
         >
-          <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-8 border border-white/30">
-            <span className="text-white font-black text-4xl">D</span>
+          <div className="flex items-center justify-center mx-auto mb-6">
+            <Image src="/logo.png" alt="DSS Nexus Commerce" width={200} height={64} className="w-auto h-16 object-contain" priority />
           </div>
-          <h1 className="text-4xl font-black text-white mb-4 leading-tight">
-            Join DSS Nexus
-          </h1>
           <p className="text-green-100 text-lg mb-12">
             Create an account to start buying or selling products instantly
           </p>

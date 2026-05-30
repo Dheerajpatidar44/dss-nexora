@@ -84,8 +84,8 @@ const userSchema = new Schema<IUser>(
 );
 
 // ─── Indexes ──────────────────────────────────────────────────────────────────
-userSchema.index({ email: 1 });
-userSchema.index({ phone: 1 });
+// userSchema.index({ email: 1 }); // Removed duplicate index
+// userSchema.index({ phone: 1 }); // Removed duplicate index
 userSchema.index({ role: 1, status: 1 });
 
 // ─── Pre-save: Hash Password ──────────────────────────────────────────────────

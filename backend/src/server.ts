@@ -104,12 +104,12 @@ const startServer = async () => {
 
 // Handle unhandled promise rejections
 process.on("unhandledRejection", (err: Error) => {
-  logger.error("Unhandled Rejection:", err.message);
+  console.error("Unhandled Rejection:", err);
   process.exit(1);
 });
 
 process.on("uncaughtException", (err: Error) => {
-  logger.error("Uncaught Exception:", err.message);
+  console.error("Uncaught Exception:", err);
   process.exit(1);
 });
 

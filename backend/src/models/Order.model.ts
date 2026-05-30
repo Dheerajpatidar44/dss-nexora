@@ -169,7 +169,7 @@ const orderSchema = new Schema<IOrder>(
   { timestamps: true }
 );
 
-orderSchema.index({ orderNumber: 1 });
+// orderSchema.index({ orderNumber: 1 }); // Removed duplicate index
 orderSchema.index({ customerId: 1, createdAt: -1 });
 orderSchema.index({ vendorId: 1, status: 1 });
 orderSchema.index({ deliveryBoyId: 1, status: 1 });

@@ -85,7 +85,7 @@ const config: Config = {
       },
       boxShadow: {
         card: "0 0 0 1px rgb(0 0 0 / 0.05), 0 1px 3px 0 rgb(0 0 0 / 0.08)",
-        "glow-green": "0 0 20px rgb(22 163 74 / 0.2)",
+        "glow-primary": "0 0 20px rgb(37 99 235 / 0.2)",
       },
     },
   },
