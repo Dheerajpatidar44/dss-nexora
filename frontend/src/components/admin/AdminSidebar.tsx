@@ -202,12 +202,12 @@ export default function AdminSidebar() {
   return (
     <aside
       className={cn(
-        "sidebar scrollbar-thin overflow-y-auto overflow-x-hidden transition-all duration-300 bg-white border-r border-gray-100 flex flex-col h-screen text-[#2d3136]",
+        "sidebar scrollbar-thin overflow-y-auto overflow-x-hidden transition-all duration-300 bg-[#faf8f5] border-r border-gray-200 flex flex-col h-screen text-[#2d3136]",
         isSidebarCollapsed ? "w-20" : "w-[280px]"
       )}
     >
       {/* Logo */}
-      <div className="flex items-center justify-between px-5 py-2 border-b border-gray-100 flex-shrink-0 sticky top-0 bg-white z-10">
+      <div className="flex items-center justify-between px-5 py-2 border-b border-gray-200 flex-shrink-0 sticky top-0 bg-[#faf8f5] z-10">
         {!isSidebarCollapsed && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -223,7 +223,7 @@ export default function AdminSidebar() {
         <button
           onClick={() => setSidebarCollapsed(!isSidebarCollapsed)}
           className={cn(
-            "p-2 rounded-lg bg-gray-50 hover:bg-gray-100 text-gray-600 transition-colors",
+            "p-2 rounded-lg bg-white border border-gray-200 shadow-sm hover:bg-orange-50 hover:text-orange-600 text-gray-600 transition-colors",
             isSidebarCollapsed && "mx-auto"
           )}
         >
@@ -261,8 +261,8 @@ export default function AdminSidebar() {
                         className={cn(
                           "w-full flex items-center gap-3 px-3 py-3 rounded-xl text-[15px] font-medium transition-all group",
                           groupActive
-                            ? "bg-[#F4F4F4] text-primary"
-                            : "hover:bg-[#F4F4F4] text-[#2d3136]",
+                            ? "bg-orange-100 text-orange-600"
+                            : "hover:bg-orange-50 hover:text-orange-600 text-[#2d3136]",
                           isSidebarCollapsed && "justify-center"
                         )}
                       >
@@ -301,15 +301,15 @@ export default function AdminSidebar() {
                                   className={cn(
                                     "flex items-center gap-3 px-3 py-2.5 rounded-lg text-[14px] font-medium transition-all group/child",
                                     isActive(child.href)
-                                      ? "bg-[#F4F4F4] text-gray-900"
-                                      : "hover:bg-[#F4F4F4] text-[#5a5e63]"
+                                      ? "bg-orange-100 text-orange-600"
+                                      : "hover:bg-orange-50 hover:text-orange-600 text-[#5a5e63]"
                                   )}
                                 >
                                   <Circle 
                                     size={6} 
                                     className={cn(
                                       "flex-shrink-0",
-                                      isActive(child.href) ? "fill-black" : ""
+                                      isActive(child.href) ? "fill-orange-600" : ""
                                     )} 
                                   />
                                   {child.title}
@@ -331,7 +331,7 @@ export default function AdminSidebar() {
                        onClick={() => logout()}
                        title={isSidebarCollapsed ? item.title : undefined}
                        className={cn(
-                         "w-full flex items-center gap-3 px-3 py-3 rounded-xl text-[15px] font-medium transition-all group text-red-500 hover:bg-[#F4F4F4]",
+                         "w-full flex items-center gap-3 px-3 py-3 rounded-xl text-[15px] font-medium transition-all group text-red-500 hover:bg-red-50",
                          isSidebarCollapsed && "justify-center"
                        )}
                      >
@@ -349,8 +349,8 @@ export default function AdminSidebar() {
                     className={cn(
                       "flex items-center gap-3 px-3 py-3 rounded-xl text-[15px] font-medium transition-all group",
                       isActive(item.href!)
-                        ? "bg-[#F4F4F4] text-primary"
-                        : "hover:bg-[#F4F4F4] text-[#2d3136]",
+                        ? "bg-orange-100 text-orange-600"
+                        : "hover:bg-orange-50 hover:text-orange-600 text-[#2d3136]",
                       isSidebarCollapsed && "justify-center"
                     )}
                   >
